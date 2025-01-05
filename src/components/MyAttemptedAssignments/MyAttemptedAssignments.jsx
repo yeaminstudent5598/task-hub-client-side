@@ -5,7 +5,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const MyAttemptedAssignments = () => {
   const { user } = useContext(AuthContext); // Get logged-in user info
   const [assignments, setAssignments] = useState([]);
- console.log(assignments);
+ console.log(assignments); 
  useEffect(() => {
     const fetchAttemptedAssignments = async () => {
       try {

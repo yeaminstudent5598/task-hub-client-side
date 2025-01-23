@@ -139,7 +139,7 @@ const PendingAssignments = () => {
                             setCurrentAssignment(assignment);
                             setIsMarkModalOpen(true);
                           }
-                        }}
+                        }} 
                         className="btn btn-primary btn-sm dark:bg-blue-600 dark:hover:bg-blue-700"
                       >
                         Give Mark

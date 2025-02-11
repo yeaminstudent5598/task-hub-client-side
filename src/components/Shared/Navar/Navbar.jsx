@@ -119,7 +119,7 @@ const Navbar = () => {
 
   return (
     <div
-    className="navbar items-center py-0 px-10 z-20  fixed border-gray-200 bg-white text-black dark:bg-gray-950 shadow-md"
+    className="navbar items-center w-full py-0 px-10 z-20  fixed border-gray-200 bg-white text-black dark:bg-gray-950 shadow-md"
 
       >
       <div className="navbar-start">

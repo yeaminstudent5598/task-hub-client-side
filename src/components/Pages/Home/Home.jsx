@@ -17,7 +17,7 @@ const Home = () => {
             <ContentTreatment/>
             <ExtraSection/>
             <FAQ/>
-        </div>
+    </div>
     );
 };
 

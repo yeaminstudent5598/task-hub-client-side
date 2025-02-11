@@ -36,28 +36,73 @@ const FAQSection = () => {
 
   return (
     <section className="py-12 dark:bg-gray-900 dark:text-white bg-gray-100">
-    <div className="container mx-auto px-4">
-      {/* Section Title */}
-      <h2 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
-        Frequently Asked Questions
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {faqs.map((faq, index) => (
-          <div
-            key={index}
-            className="collapse dark:bg-gray-800 dark:text-white collapse-arrow bg-white rounded-lg shadow-lg"
-          >
-            <input type="checkbox" className="peer" />
-            {/* Question Title */}
-            <div className="collapse-title text-lg font-medium text-gray-800 peer-checked:text-primary dark:text-white peer-checked:dark:text-primary">
-              {faq.question}
+    <div className="container mx-auto px-6 py-12 flex flex-col lg:flex-row items-center gap-12">
+      {/* Image Section */}
+      <div className="flex-1">
+        <img
+          className="w-full max-w-2xl"
+          src="https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/assignments/laptop_1.png"
+          alt="Laptop with assignments"
+        />
+      </div>
+
+      {/* Text Section */}
+      <div className="flex-1">
+        <h3 className="text-3xl font-semibold text-gray-900 dark:text-white">
+          <em>Modern </em>assignments for <br className="hidden md:block" />
+          today's learners.
+        </h3>
+
+        {/* Features List */}
+        <ul className="mt-6 space-y-6">
+          {[
+            {
+              imgSrc:
+                "https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/final-checklist-icons/Numeric_Pink_1.png",
+              text: "Bring content to life with multimedia and interactive questions throughout your assignments for students.",
+            },
+            {
+              imgSrc:
+                "https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/final-checklist-icons/Numeric_Pink_2.png",
+              text: "Encourage students to show their learning in different ways through a variety of question types—including multiple choice, matching, click-on-target, and long-form answers.",
+            },
+            {
+              imgSrc:
+                "https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/final-checklist-icons/Numeric_Pink_3.png",
+              text: "Provide hints, multiple attempts, or make correct answers visible to give students immediate feedback so they learn as they go.",
+            },
+          ].map((item, index) => (
+            <li key={index} className="flex items-center gap-4">
+              <img className="w-12 h-12" src={item.imgSrc} alt={`Step ${index + 1}`} />
+              <p className="text-gray-700 dark:text-gray-300">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+
+        {/* Email Form */}
+        <div className="mt-8">
+          <form className="flex items-center border border-gray-300 dark:border-gray-700 rounded-lg overflow-hidden">
+            <div className="relative flex-1">
+              <input
+                className="w-full py-3 pl-10 pr-4 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white outline-none"
+                type="email"
+                placeholder="Enter your email address here"
+                required
+              />
+              <img
+                className="absolute left-3 top-3 w-6"
+                src="https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/icons/purple-email.svg"
+                alt="Email icon"
+              />
             </div>
-            {/* Answer Content */}
-            <div className="collapse-content text-gray-600 dark:text-gray-300">
-              <p>{faq.answer}</p>
-            </div>
-          </div>
-        ))}
+            <button
+              type="submit"
+              className="bg-purple-600 text-white py-3 px-6 hover:bg-purple-700 transition"
+            >
+              Get Started
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>

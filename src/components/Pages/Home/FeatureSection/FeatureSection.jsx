@@ -42,12 +42,12 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-base-100">
+    <section className="p-10 dark:bg-gray-900 dark:text-white  bg-base-100">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-4 text-primary">
           Why Choose TaskHub?
         </h2>
-        <p className="text-lg text-neutral mb-8">
+        <p className="text-lg dark:text-white text-neutral mb-8">
           Simplify group-study assignments with these amazing features designed
           to boost collaboration and productivity!
         </p>
@@ -59,7 +59,7 @@ const FeatureSection = () => {
             >
               <div className="text-5xl mb-4 text-primary">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-neutral">{feature.description}</p>
+              <p className="text-neutral dark:text-gray-200">{feature.description}</p>
             </div>
           ))}
         </div>

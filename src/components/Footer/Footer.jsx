@@ -2,11 +2,11 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="footer mt-20 bg-gradient-to-tr from-blue-800 via-purple-900 to-gray-900
+    <footer className="footer mt-20 bg-[#2d1259]
         dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-600 p-10 dark:text-white rounded-t-lg shadow-2xl">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         {/* TaskHub Info Section */}
-        <div>
+        <div className='text-white'>
           <h6 className="footer-title text-xl font-bold text-white">TaskHub</h6>
           <p className="mt-2 text-sm opacity-80">
             Your ultimate platform for managing assignments, tasks, and collaborative projects efficiently.
@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
 
         {/* Services Section */}
-        <div>
+        <div className='text-white'>
           <h6 className="footer-title text-lg font-bold text-white">Services</h6>
           <ul className="mt-2 space-y-2">
             <li><a className="link link-hover text-sm">Task Management</a></li>
@@ -28,12 +28,12 @@ const Footer = () => {
         </div>
 
         {/* Quick Links Section */}
-        <div>
+        <div className='text-white'>
           <h6 className="footer-title text-lg font-bold text-white">Quick Links</h6>
           <ul className="mt-2 space-y-2">
             <li><a className="link link-hover text-sm">About Us</a></li>
             <li><a className="link link-hover text-sm">Contact Support</a></li>
-            <li><a className="link link-hover text-sm">Blog</a></li>
+            <li><a className="link  link-hover text-sm">Blog</a></li>
             <li><a className="link link-hover text-sm">FAQs</a></li>
           </ul>
         </div>

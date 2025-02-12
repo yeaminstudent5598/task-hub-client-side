@@ -32,13 +32,13 @@ const FAQ = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-3xl">
-      <h1 className="text-3xl font-bold text-center text-purple-900 mb-6">
+    <div className="container  mx-auto p-6 max-w-3xl">
+      <h1 className="text-3xl dark:text-gray-200 font-bold text-center text-purple-900 mb-6">
         Frequently Asked <em>Questions</em>
       </h1>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="collapse collapse-arrow bg-white shadow-md rounded-lg border border-gray-200">
+          <div key={index} className="collapse dark:bg-gray-950 dark:text-gray-200 collapse-arrow bg-white shadow-md rounded-lg border border-gray-200">
             <input type="checkbox" checked={openIndex === index} onChange={() => toggleFAQ(index)} />
             <div className="collapse-title flex justify-between items-center text-lg font-medium cursor-pointer p-4">
               {faq.question}
@@ -48,7 +48,7 @@ const FAQ = () => {
                 className={`w-4 h-4 transition-transform ${openIndex === index ? "rotate-180" : ""}`}
               />
             </div>
-            <div className="collapse-content p-4 text-gray-700">
+            <div className="collapse-content dark:text-gray-200 p-4 text-gray-700">
               <p>
                 {faq.answer}
                 {faq.link && (

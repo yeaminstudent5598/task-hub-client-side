@@ -81,22 +81,39 @@ const Navbar = () => {
     >
       Assignments
     </NavLink>,
-    user && ( 
-      <NavLink
-        key="Pending Assignments"
-        to="/pending-assignments"
-        className={({ isActive, isPending }) =>
-          `m-4 dark:text-white text-black hover:text-yellow-300 transition duration-300 ${
-            isPending
-              ? "pending"
-              : isActive
-              ? "text-black border-b-2 border-yellow-300"
-              : ""
-          }`
-        }
-      >
-        Pending Assignments
-      </NavLink>
+    user && (
+      <>
+        <NavLink
+          key="Pending Assignments"
+          to="/pending-assignments"
+          className={({ isActive, isPending }) =>
+            `m-4 dark:text-white text-black hover:text-yellow-300 transition duration-300 ${
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-black border-b-2 border-yellow-300"
+                : ""
+            }`
+          }
+        >
+          Pending Assignments
+        </NavLink>
+        <NavLink
+          key="create-assignment"
+          to="/create-assignment"
+          className={({ isActive, isPending }) =>
+            `m-4 dark:text-white text-black hover:text-yellow-300 transition duration-300 ${
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-black border-b-2 border-yellow-300"
+                : ""
+            }`
+          }
+        >
+          <li>Create Assignment</li>
+        </NavLink>
+      </>
     ),
     <NavLink
       key="Rules"
@@ -114,6 +131,7 @@ const Navbar = () => {
       Rules
     </NavLink>,
   ];
+  
  
   
 
@@ -218,14 +236,7 @@ const Navbar = () => {
   </li>
 
   {/* Menu Items */}
-  <li>
-    <Link
-      to="/create-assignment"
-      className="block text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 px-3 py-2 rounded-lg transition duration-200"
-    >
-      Create Assignment
-    </Link>
-  </li>
+  
 
   <li>
     <Link

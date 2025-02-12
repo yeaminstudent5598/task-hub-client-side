@@ -48,9 +48,9 @@ const tools = [
 
 const ContentTreatment = () => {
   return (
-    <div className="container  mx-auto p-10 text-center bg-gradient-to-b from-white to-purple-100 min-h-screen flex flex-col items-center">
+    <div className="container  mx-auto p-10 text-center bg-gradient-to-b from-white to-purple-100 dark:from-gray-900 dark:to-gray-950 dark:text-white min-h-screen flex flex-col items-center">
       <motion.h3
-        className="text-4xl font-semibold text-purple-900"
+        className="text-4xl dark:text-gray-200 font-semibold text-purple-900"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -58,7 +58,7 @@ const ContentTreatment = () => {
         <em>Tools</em> for teaching, learning, and engaging.
       </motion.h3>
       <motion.p
-        className="text-gray-700 mt-4 max-w-2xl"
+        className="text-gray-700 dark:text-gray-200 mt-4 max-w-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
@@ -67,7 +67,7 @@ const ContentTreatment = () => {
         tools, and activities in online, hybrid, or face-to-face classrooms.
       </motion.p>
       <motion.div
-        className="grid md:grid-cols-4 sm:grid-cols-2 gap-8 mt-10"
+        className="grid  md:grid-cols-4 sm:grid-cols-2 gap-8 mt-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
@@ -78,13 +78,13 @@ const ContentTreatment = () => {
             href={tool.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center p-2 hover:shadow-lg transition duration-300"
+            className="flex  flex-col items-center p-2 hover:shadow-lg transition duration-300"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 * index, type: "spring", stiffness: 100 }}
           >
             <img src={tool.img} alt={`${tool.name} logo`} className="w-16 h-16" />
-            <p className={`mt-2 text-lg ${tool.textColor ? tool.textColor : "text-gray-800"}`}>{tool.name}</p>
+            <p className={`mt-2 dark:text-gray-200 text-lg ${tool.textColor ? tool.textColor : "text-gray-800"}`}>{tool.name}</p>
           </motion.a>
         ))}
       </motion.div>

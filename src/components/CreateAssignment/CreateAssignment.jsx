@@ -92,7 +92,7 @@ const CreateAssignment = () => {
   };
 
   return (
-    <div className="container mx-auto py-16">
+    <div className="container pt-24 dark:text-white mx-auto py-16">
       <Toaster />
       <h2 className="text-3xl font-bold mb-8 text-center text-primary">
         Create New Assignment
@@ -111,7 +111,7 @@ const CreateAssignment = () => {
             name="title"
             onChange={handleChange}
             value={assignment.title || ""}
-            className="input input-bordered w-full"
+            className="input  input-bordered w-full"
             placeholder="Enter assignment title"
           />
         </div>

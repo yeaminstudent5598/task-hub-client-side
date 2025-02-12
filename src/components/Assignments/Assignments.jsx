@@ -126,7 +126,7 @@ const Assignments = () => {
                   </button>
                   {user && user.email === assignment.creatorEmail && (
                     <div className="mt-4 space-y-4">
-                      <Link to={`/update-assignment/${assignment._id}`} className="block mr-2 bg-yellow-400 text-white flex  btn py-4 rounded-lg text-center hover:bg-yellow-500 dark:bg-yellow-500 dark:hover:bg-yellow-600"><GrUpdate />Update</Link>
+                      <Link to={`/update-assignment/${assignment._id}`} className="block btn flex bg-[#f5f6fb]  shadow-lg text-blue-600 border border-2 dark:hover:bg-blue-600 border-gray-400"><GrUpdate />Update</Link>
                       <button onClick={() => handleDelete(assignment._id)} className="block bg-red-600 btn flex w-full text-white py-2 rounded-lg hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"><MdDeleteForever />Delete</button>
                     </div>
                   )}

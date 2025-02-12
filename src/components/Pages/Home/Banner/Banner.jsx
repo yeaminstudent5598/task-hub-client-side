@@ -3,6 +3,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -41,51 +42,18 @@ const Banner = () => {
         </p>
 
         {/* Statistics */}
-        <div className="mt-6 bg-white text-gray-900 p-6 rounded-lg shadow-md">
-          <p className="text-4xl font-bold text-purple-600">93%</p>
+        <div className="mt-6  text-gray-900 ">
+          <p className="text-4xl font-bold">93%</p>
           <p className="mt-2 text-sm">
             of students said the variety of assessment types in Top Hat helped them
             develop critical thinking skills<sup>1</sup>
           </p>
         </div>
 
-        {/* Email Form */}
-        <div className="mt-6">
-          <form className="flex items-center border border-gray-300  rounded-lg overflow-hidden">
-            <div className="relative flex-1">
-              <input
-                className="w-full py-3 pl-10 pr-4 bg-gray-100 text-gray-900 outline-none"
-                type="email"
-                placeholder="Enter your email address here"
-                required
-              />
-              <img
-                className="absolute left-3 top-3 w-6"
-                src="https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/icons/purple-email.svg"
-                alt="Email icon"
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-purple-600 text-white py-3 px-6 hover:bg-purple-700 transition"
-            >
-              Get Started
-            </button>
-          </form>
-        </div>
+        
 
-        {/* Footnote */}
-        <div className="mt-4 text-sm">
-          <sup>1</sup> Top Hat Research Report (2020).{" "}
-          <a
-            href="https://tophat.com/teaching-resources/infographics/tophat-research-report/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            View Report
-          </a>
-        </div>
+      
+       
       </div>
 
       {/* Desktop Hero Image */}

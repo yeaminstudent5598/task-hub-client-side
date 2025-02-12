@@ -54,30 +54,7 @@ const ActionableData = () => {
             ))}
           </ul>
 
-          {/* Email Form */}
-          <div className="mt-6">
-            <form className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
-              <div className="relative flex-1">
-                <input
-                  className="w-full py-3 pl-10 pr-4 bg-white text-gray-900 outline-none"
-                  type="email"
-                  placeholder="Enter your email address here"
-                  required
-                />
-                <img
-                  className="absolute left-3 top-3 w-6"
-                  src="https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/icons/email.svg"
-                  alt="Email icon"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-gray-900 text-white py-3 px-6 hover:bg-gray-700 transition"
-              >
-                Get Started
-              </button>
-            </form>
-          </div>
+          
         </div>
       </div>
     </section>

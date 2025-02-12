@@ -3,15 +3,16 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
-import { GrUpdate } from 'react-icons/gr';
-import { MdDeleteForever } from 'react-icons/md';
-import { TbListDetails } from 'react-icons/tb';
+import { MdDeleteForever, MdReadMore } from 'react-icons/md';
+import { FaRegEdit } from 'react-icons/fa';
 
 const Assignments = () => {
   const [assignments, setAssignments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [difficulty, setDifficulty] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortOrder, setSortOrder] = useState('desc'); // Default: Descending order
+
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -21,7 +22,12 @@ const Assignments = () => {
         const response = await axios.get('https://task-hub-server-side.vercel.app/assignments', {
           params: { difficulty, search: searchTerm },
         });
-        setAssignments(response.data);
+
+        let sortedAssignments = response.data.sort((a, b) => 
+          sortOrder === 'asc' ? a.marks - b.marks : b.marks - a.marks
+        );
+
+        setAssignments(sortedAssignments);
       } catch (error) {
         console.error('Error fetching assignments:', error);
       } finally {
@@ -29,42 +35,16 @@ const Assignments = () => {
       }
     };
     fetchAssignments();
-  }, [difficulty, searchTerm]);
-
-  const handleDelete = async (id) => {
-    const result = await Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this action!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Yes, delete it!",
-    });
-
-    if (result.isConfirmed) {
-      try {
-        const response = await fetch(`https://task-hub-server-side.vercel.app/assignments/${id}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          Swal.fire("Deleted!", "Assignment has been deleted.", "success");
-          setAssignments(assignments.filter((assignment) => assignment._id !== id));
-        } else {
-          Swal.fire("Error!", "Failed to delete the assignment.", "error");
-        }
-      } catch (error) {
-        Swal.fire("Error!", "An error occurred while deleting the assignment.", "error");
-      }
-    }
-  };
+  }, [difficulty, searchTerm, sortOrder]);
 
   return (
     <section className="assignments py-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
       <div className="container mx-auto px-6 lg:px-12">
         <h2 className="text-4xl font-bold text-center text-blue-600 dark:text-blue-400 mb-12">All Assignments</h2>
 
+        {/* Filters: Difficulty, Search, Sorting */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
+          {/* Difficulty Filter */}
           <select
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}
@@ -76,6 +56,7 @@ const Assignments = () => {
             <option value="hard">Hard</option>
           </select>
 
+          {/* Search Input */}
           <input
             type="text"
             value={searchTerm}
@@ -83,55 +64,54 @@ const Assignments = () => {
             placeholder="Search by title"
             className="p-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg shadow-sm focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
           />
+
+          {/* Sorting Dropdown */}
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="p-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-lg shadow-sm focus:ring focus:ring-blue-300 dark:focus:ring-blue-500"
+          >
+            <option value="desc">Marks: High to Low</option>
+            <option value="asc">Marks: Low to High</option>
+          </select>
         </div>
 
+        {/* Assignment List */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[...Array(6)].map((_, index) => (
-              <div key={index} className="w-[400px] md:w-[350px] bg-slate-300/20 px-6 py-4 mx-auto rounded-2xl space-y-6 shadow-md animate-pulse">
-                <div className="w-full h-[190px] bg-gray-400 rounded-2xl"></div>
-                <div className="space-y-2">
-                  <div className="h-6 w-2/3 rounded bg-gray-300"></div>
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="h-4 w-4 rounded bg-gray-300"></div>
-                    ))}
-                  </div>
-                </div>
-                <div className="mt-5 flex justify-between items-center font-medium">
-                  <div className="h-6 w-1/4 rounded bg-gray-300"></div>
-                  <div className="h-10 w-24 bg-gray-700 rounded-lg"></div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p className="text-center text-gray-500 dark:text-gray-400 italic mt-8">Loading assignments...</p>
         ) : assignments.length === 0 ? (
           <p className="text-center text-gray-500 dark:text-gray-400 italic mt-8">No assignments found matching your criteria.</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {assignments.map((assignment) => (
               <div key={assignment._id} className="card bg-white dark:bg-gray-700 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-                <img src={assignment.thumbnail} alt="Assignment" className=" h-48 object-cover rounded-t-lg" />
+                <img src={assignment.thumbnail} alt="Assignment" className="h-48 object-cover rounded-t-lg" />
                 <div className="p-6 flex flex-col h-full">
                   <div className="flex-grow">
-                  <h3 className="text-xl font-semibold mb-2">{assignment.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Difficulty: {assignment.difficulty}</p>
-                  <p className="text-gray-600 dark:text-gray-300">Marks: {assignment.marks}</p>
+                    <h3 className="text-xl font-semibold mb-2">{assignment.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300">Difficulty: {assignment.difficulty}</p>
+                    <p className="text-gray-600 dark:text-gray-300">Marks: {assignment.marks}</p>
                   </div>
-                  <div className='mt-auto flex flex-col gap-y-4'>
-                  <button
-                    onClick={() => navigate(`/assignment-details/${assignment._id}`)}
-                    className="btn w-full bg-[#f5f6fb]  shadow-lg mt-4 text-blue-600 border border-2 border-gray-400 py-2 rounded-lg"
-                  >
-                    <TbListDetails />
-                    View
-                  </button>
-                  {user && user.email === assignment.creatorEmail && (
-                    <div className="mt-4 space-y-4">
-                      <Link to={`/update-assignment/${assignment._id}`} className="block btn flex bg-[#f5f6fb]  shadow-lg text-blue-600 border border-2  border-gray-400"><GrUpdate />Update</Link>
-                      <button onClick={() => handleDelete(assignment._id)} className="block bg-red-600 btn flex w-full text-white py-2 rounded-lg hover:bg-red-700 "><MdDeleteForever />Delete</button>
-                    </div>
-                  )}
+                  <div className="flex justify-between items-center">
+                    <button
+                      onClick={() => navigate(`/assignment-details/${assignment._id}`)}
+                      className="btn btn-sm bg-[#f5f6fb] shadow-lg text-blue-600 border border-2 border-gray-400 rounded-lg flex justify-center items-center gap-2"
+                    >
+                      <MdReadMore />
+                    </button>
+                    {user && user.email === assignment.creatorEmail && (
+                      <>
+                        <Link to={`/update-assignment/${assignment._id}`} className="block btn btn-sm flex bg-[#f5f6fb] shadow-lg text-blue-600 border border-2 border-gray-400 rounded-lg justify-center items-center gap-2">
+                          <FaRegEdit />
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(assignment._id)}
+                          className="block bg-red-600 btn btn-sm flex text-white py-2 rounded-lg hover:bg-red-700 justify-center items-center gap-2"
+                        >
+                          <MdDeleteForever />
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>

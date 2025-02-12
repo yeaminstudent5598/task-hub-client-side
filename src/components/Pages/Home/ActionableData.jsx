@@ -2,7 +2,7 @@ import React from "react";
 
 const ActionableData = () => {
   return (
-    <section className="bg-gray-100 py-12">
+    <section className="bg-gray-100 dark:bg-gray-950  py-12">
       <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
         {/* Video Section */}
         <div className="lg:w-1/2">
@@ -22,13 +22,13 @@ const ActionableData = () => {
         </div>
 
         {/* Text Section */}
-        <div className="lg:w-1/2">
-          <h3 className="text-3xl font-bold text-gray-900">
+        <div className="lg:w-1/2 ">
+          <h3 className="text-3xl font-bold dark:text-gray-200 text-gray-900">
             <em className="text-purple-600">Actionable data</em> for evolving teaching.
           </h3>
 
           {/* Checklist */}
-          <ul className="mt-6 space-y-6">
+          <ul className="mt-6 space-y-6 ">
             {[
               {
                 img: "https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/final-checklist-icons/Numeric_Purple_1.png",
@@ -47,9 +47,9 @@ const ActionableData = () => {
                 text: "Easily integrate with LMS platforms like Blackboard, Canvas, D2L, Moodle, and Sakai."
               }
             ].map((item, index) => (
-              <li key={index} className="flex items-start gap-4">
+              <li key={index} className="flex  items-start gap-4">
                 <img className="w-12" src={item.img} alt={`Checklist icon ${index + 1}`} />
-                <p className="text-gray-700">{item.text}</p>
+                <p className="dark:text-gray-300 text-gray-700">{item.text}</p>
               </li>
             ))}
           </ul>

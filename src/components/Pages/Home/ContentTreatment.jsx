@@ -48,7 +48,7 @@ const tools = [
 
 const ContentTreatment = () => {
   return (
-    <div className="container mx-auto p-10 text-center bg-gradient-to-b from-white to-purple-100 min-h-screen flex flex-col items-center">
+    <div className="container  mx-auto p-10 text-center bg-gradient-to-b from-white to-purple-100 min-h-screen flex flex-col items-center">
       <motion.h3
         className="text-4xl font-semibold text-purple-900"
         initial={{ opacity: 0 }}

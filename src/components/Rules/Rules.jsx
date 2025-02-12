@@ -79,7 +79,7 @@ const Rules = () => {
   ];
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-gradient-to-r from-gray-100 to-gray-300 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg space-y-6">
+    <div className="p-6 pt-24 max-w-4xl mx-auto bg-gradient-to-r from-gray-100 to-gray-300 dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-900 rounded-lg shadow-lg space-y-6">
       <h2 className="text-3xl dark:text-white font-semibold text-center text-gray-800 mb-8">TaskHub Rules</h2>
       {rulesData.map((rule, index) => (
         <div key={index} className="border-t-4 border-transparent hover:border-gray-200 transition-all duration-300 transform hover:scale-105">

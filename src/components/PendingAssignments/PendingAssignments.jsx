@@ -85,7 +85,7 @@ const PendingAssignments = () => {
   
 
   return (
-    <section className="pending-assignments py-16 bg-gray-50 dark:bg-gray-800 dark:text-white">
+    <section className="pending-assignments py-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
     <div className="container mx-auto px-4">
       <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-8">
         Pending Assignments

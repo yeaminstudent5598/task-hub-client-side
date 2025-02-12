@@ -60,7 +60,7 @@ const Assignments = () => {
   };
 
   return (
-    <section className="assignments py-16 bg-gray-50 dark:bg-gray-800 dark:text-white">
+    <section className="assignments py-20 bg-gray-50 dark:bg-gray-800 dark:text-white">
       <div className="container mx-auto px-6 lg:px-12">
         <h2 className="text-4xl font-bold text-center text-blue-600 dark:text-blue-400 mb-12">All Assignments</h2>
 
@@ -112,22 +112,24 @@ const Assignments = () => {
             {assignments.map((assignment) => (
               <div key={assignment._id} className="card bg-white dark:bg-gray-700 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
                 <img src={assignment.thumbnail} alt="Assignment" className=" h-48 object-cover rounded-t-lg" />
-                <div className="p-6">
+                <div className="p-6 flex flex-col h-full">
+                  <div className="flex-grow">
                   <h3 className="text-xl font-semibold mb-2">{assignment.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300">Difficulty: {assignment.difficulty}</p>
                   <p className="text-gray-600 dark:text-gray-300">Marks: {assignment.marks}</p>
-                  <div className=''>
+                  </div>
+                  <div className='mt-auto flex flex-col gap-y-4'>
                   <button
                     onClick={() => navigate(`/assignment-details/${assignment._id}`)}
-                    className="btn w-full bg-[#f5f6fb]  shadow-lg mt-4 text-blue-600 border border-2 border-gray-400 py-2 rounded-lg  dark:hover:bg-blue-600"
+                    className="btn w-full bg-[#f5f6fb]  shadow-lg mt-4 text-blue-600 border border-2 border-gray-400 py-2 rounded-lg"
                   >
                     <TbListDetails />
                     View
                   </button>
                   {user && user.email === assignment.creatorEmail && (
                     <div className="mt-4 space-y-4">
-                      <Link to={`/update-assignment/${assignment._id}`} className="block btn flex bg-[#f5f6fb]  shadow-lg text-blue-600 border border-2 dark:hover:bg-blue-600 border-gray-400"><GrUpdate />Update</Link>
-                      <button onClick={() => handleDelete(assignment._id)} className="block bg-red-600 btn flex w-full text-white py-2 rounded-lg hover:bg-red-700 dark:bg-red-500 dark:hover:bg-red-600"><MdDeleteForever />Delete</button>
+                      <Link to={`/update-assignment/${assignment._id}`} className="block btn flex bg-[#f5f6fb]  shadow-lg text-blue-600 border border-2  border-gray-400"><GrUpdate />Update</Link>
+                      <button onClick={() => handleDelete(assignment._id)} className="block bg-red-600 btn flex w-full text-white py-2 rounded-lg hover:bg-red-700 "><MdDeleteForever />Delete</button>
                     </div>
                   )}
                   </div>

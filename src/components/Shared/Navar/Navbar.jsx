@@ -14,7 +14,7 @@ const Navbar = () => {
   // Sync theme with DOM and localStorage on initial render
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme") || "light";
-    setTheme(storedTheme);
+    setTheme(storedTheme); 
     if (storedTheme === "dark") {
       document.documentElement.classList.add("dark");
       document.documentElement.setAttribute("data-theme", "dark");
@@ -37,7 +37,7 @@ const Navbar = () => {
   }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
+    const newTheme = theme === "light" ? "dark" : "light"; 
     setTheme(newTheme);
   };
 

@@ -79,7 +79,7 @@ const Assignments = () => {
         {/* Assignment List */}
         {loading ? (
           <div className="flex justify-center items-center py-20">
-          <div className="spinner border-t-4 border-b-4 border-blue-500 dark:border-blue-400 w-12 h-12 rounded-full animate-spin"></div> 
+          {/* <div className="spinner border-t-4 border-b-4 border-blue-500 dark:border-blue-400 w-12 h-12 rounded-full animate-spin"></div>  */}
         </div>
         ) : assignments.length === 0 ? (
           <p className="text-center text-gray-500 dark:text-gray-400 italic mt-8">No assignments found matching your criteria.</p>

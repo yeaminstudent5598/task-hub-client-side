@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="bg-purple-600 px-10 dark:bg-gray-950 pt-10 text-white">
+    <div className="bg-purple-600 px-10  dark:bg-gray-950 pt-10 text-white">
     <div className="container mx-auto  py-12 flex flex-col lg:flex-row items-center gap-12">
       {/* Mobile Hero Image */}
       <picture className="lg:hidden">
@@ -42,7 +42,7 @@ const Banner = () => {
         </p>
 
         {/* Statistics */}
-        <div className="mt-6  text-gray-900 ">
+        <div className="mt-6 dark:text-white  text-gray-900 ">
           <p className="text-4xl font-bold">93%</p>
           <p className="mt-2 text-sm">
             of students said the variety of assessment types in Top Hat helped them
@@ -60,8 +60,7 @@ const Banner = () => {
       <picture className="hidden  lg:block w-1/2">
         <img
           className="w-full rounded-lg"
-          src="https://tophat.com/wp-content/themes/TOPHAT01/build/images/features/assignments/hero_1920.png"
-          alt="Assignments hero"
+          src="https://i.ibb.co.com/jvNvCR07/hero-1920-copy.png"
         />
         
       </picture>
